@@ -1,0 +1,160 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2.5rem 1.5rem;
+  overflow-y: auto;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 3rem 4rem;
+  }
+}
+
+.header {
+  margin-bottom: 1rem;
+}
+
+.timelineContainer {
+  position: relative;
+  padding-left: 20px;
+}
+
+@media (min-width: 768px) {
+  .timelineContainer {
+    padding-left: 30px;
+  }
+}
+
+.timelineLine {
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.experienceList {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg, 24px);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+.timelineDot {
+  position: absolute;
+  top: 40px;
+  left: -20px;
+  width: 14px;
+  height: 14px;
+  background: var(--bg-primary);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .timelineDot {
+    left: -30px;
+  }
+}
+
+.card:hover .timelineDot {
+  border-color: var(--text-primary);
+  background: var(--text-primary);
+}
+
+.dotCurrent {
+  border-color: var(--text-primary);
+  background: var(--text-primary);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.role {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.company {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.periodBadge {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 99px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.periodCurrent {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.techBadge {
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.card:hover .techBadge {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
