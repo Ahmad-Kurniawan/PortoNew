@@ -221,12 +221,12 @@
     min-width: unset;
     max-width: unset;
     height: auto;
-    min-height: 105px;
+    min-height: auto;
     border-right: none;
     border-bottom: 1px solid var(--border-glass);
-    padding: 16px 0;
+    padding: 20px 0 16px 0;
   }
-  .rightPanel { height: calc(100vh - 105px); }
+  .rightPanel { height: auto; }
   .brand { padding: 0 24px; margin-bottom: 16px; }
   .indicator { padding: 0 24px; margin-top: 12px; }
   .hint { display: none; }

@@ -182,6 +182,7 @@
 @media (max-width: 768px) {
   .wrapper {
     gap: 2rem;
+    padding: 1.5rem;
   }
   .imageContainer {
     max-width: 240px;
