@@ -4,17 +4,19 @@
   height: 100%;
   padding: 1.5rem 1.5rem;
   overflow-y: auto;
-  gap: 3rem;
+  gap: 2.5rem;
+  position: relative;
 }
 
 @media (min-width: 768px) {
   .wrapper {
     padding: 3rem 4rem;
+    gap: 3rem;
   }
 }
 
 .header {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .timelineContainer {
@@ -24,71 +26,80 @@
 
 @media (min-width: 768px) {
   .timelineContainer {
-    padding-left: 30px;
+    padding-left: 32px;
   }
 }
 
 .timelineLine {
   position: absolute;
-  top: 10px;
-  bottom: 0;
+  top: 24px;
+  bottom: 24px;
   left: 0;
   width: 2px;
-  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
   border-radius: 2px;
 }
 
 .experienceList {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .card {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 32px;
-  background: rgba(255, 255, 255, 0.02);
+  padding: 28px 32px;
+  background: rgba(255, 255, 255, 0.015);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-lg, 24px);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardCurrent {
+  background: rgba(255, 255, 255, 0.025);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .card:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.035);
   border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
 }
 
 .timelineDot {
   position: absolute;
-  top: 40px;
+  top: 36px;
   left: -20px;
-  width: 14px;
-  height: 14px;
-  background: var(--bg-primary);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  width: 12px;
+  height: 12px;
+  background: var(--bg-primary, #0a0a0c);
+  border: 2px solid rgba(255, 255, 255, 0.25);
   border-radius: 50%;
   transform: translateX(-50%);
   transition: all 0.3s ease;
+  z-index: 2;
 }
 
 @media (min-width: 768px) {
   .timelineDot {
-    left: -30px;
+    left: -32px;
   }
 }
 
 .card:hover .timelineDot {
-  border-color: var(--text-primary);
-  background: var(--text-primary);
-}
-
-.dotCurrent {
-  border-color: var(--text-primary);
-  background: var(--text-primary);
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1);
+  border-color: var(--text-primary, #ffffff);
+  background: var(--text-primary, #ffffff);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.7);
+  transform: translateX(-50%) scale(1.3);
 }
 
 .cardHeader {
@@ -97,46 +108,93 @@
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .titleGroup {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+}
+
+.roleRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .role {
   font-family: var(--font-heading);
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--text-primary, #ffffff);
+  letter-spacing: -0.01em;
+}
+
+.activeTag {
+  font-size: 0.7rem;
+  padding: 3px 9px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 99px;
+  color: var(--text-primary, #ffffff);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.companyMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.6));
+  flex-wrap: wrap;
 }
 
 .company {
-  font-size: 1rem;
-  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.85));
+}
+
+.metaDot {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .periodBadge {
-  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
   padding: 6px 14px;
   background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 99px;
-  color: var(--text-secondary);
+  color: var(--text-secondary, rgba(255, 255, 255, 0.6));
   white-space: nowrap;
 }
 
 .periodCurrent {
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary, #ffffff);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .desc {
   font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin-bottom: 24px;
+  line-height: 1.65;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.65));
+  margin-bottom: 20px;
 }
 
 .techStack {
@@ -146,15 +204,17 @@
 }
 
 .techBadge {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   padding: 4px 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
-  color: var(--text-secondary);
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.6));
+  transition: all 0.25s ease;
 }
 
 .card:hover .techBadge {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary, #ffffff);
 }

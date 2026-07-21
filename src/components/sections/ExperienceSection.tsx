@@ -1,41 +1,56 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Building2, Calendar, MapPin } from 'lucide-react';
 import styles from './ExperienceSection.module.css';
 
 const container = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.1 } },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12 },
+  },
 };
+
 const item = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.25, 1, 0.5, 1] as [number, number, number, number] },
+  },
 };
 
 const experiences = [
   {
-    role: 'Senior Frontend Engineer',
-    company: 'TechNova Inc.',
-    period: '2023 — Present',
-    desc: 'Architecting scalable frontend solutions, leading a team of 4 developers, and migrating legacy codebases to Next.js. Improved performance metrics by 40%.',
+    id: '01',
+    role: 'Odoo 19 ERP Implementor',
+    company: 'CV Sadata Teknologi Integrasi',
+    location: 'Pekanbaru, Indonesia',
+    period: '2024 — Present',
+    desc: 'Mengimplementasikan dan mengonfigurasi sistem ERP Odoo 19 secara end-to-end untuk mendukung optimalisasi alur bisnis, manajemen inventaris, dan otomatisasi proses operasional klien.',
     current: true,
-    tech: ['React', 'Next.js', 'TypeScript', 'GraphQL'],
+    tech: ['Odoo 19', 'Python', 'PostgreSQL', 'ERP Customization', 'Business Workflows'],
   },
   {
-    role: 'Full-Stack Developer',
-    company: 'Creative Labs',
-    period: '2021 — 2023',
-    desc: 'Developed interactive marketing campaigns and e-commerce platforms for global brands using React and Node.js. Integrated various headless CMS solutions.',
+    id: '02',
+    role: 'Front-End Developer',
+    company: 'Dashboard Pemantauan Lahan (Polda Riau)',
+    location: 'Riau, Indonesia',
+    period: '2024',
+    desc: 'Berperan sebagai pengembang antarmuka utama dalam pembangunan sistem dashboard pemantauan lahan berbasis geospasial untuk Polda Riau guna menyajikan visualisasi data monitoring wilayah secara intuitif.',
     current: false,
-    tech: ['Node.js', 'Express', 'React', 'MongoDB'],
+    tech: ['React', 'TypeScript', 'Dashboard UI', 'Geospatial Data', 'Tailwind CSS'],
   },
   {
-    role: 'Web Developer',
-    company: 'Digital Agency',
-    period: '2019 — 2021',
-    desc: 'Built custom modern web applications and optimized client websites for SEO and performance, ensuring WCAG accessibility compliance.',
+    id: '03',
+    role: 'Front-End Developer (Magang)',
+    company: 'Prodi Teknik Informatika, UIN Suska Riau',
+    location: 'Pekanbaru, Indonesia',
+    period: '2023 — 2024',
+    desc: 'Merancang dan membangun antarmuka pengguna (front-end) pada Dashboard TIF untuk Modul Kerja Praktik, meningkatkan efisiensi dan transparansi alur akademik kerja praktik mahasiswa.',
     current: false,
-    tech: ['HTML/CSS', 'JavaScript', 'PHP', 'WordPress'],
+    tech: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn UI'],
   },
 ];
 
@@ -47,43 +62,65 @@ export default function ExperienceSection() {
       initial="hidden"
       animate="show"
     >
+      {/* Clean Minimal Header */}
       <motion.div variants={item} className={styles.header}>
         <p className="section-label">Experience</p>
-        <h2 className="section-title">
-          Career <br />
-          <span className="grad-text">History</span>
+        <h2 className="section-title grad-text">
+          Career History <br />
         </h2>
       </motion.div>
 
+      {/* Timeline List */}
       <motion.div variants={item} className={styles.timelineContainer}>
         <div className={styles.timelineLine}></div>
-        
-        <div className={styles.experienceList}>
-          {experiences.map((e, i) => (
-            <div key={i} className={styles.card}>
-              <div className={`${styles.timelineDot} ${e.current ? styles.dotCurrent : ''}`}></div>
 
+        <div className={styles.experienceList}>
+          {experiences.map((e) => (
+            <motion.div
+              key={e.id}
+              variants={item}
+              className={`${styles.card} ${e.current ? styles.cardCurrent : ''}`}
+            >
+              {/* Timeline Dot */}
+              <div className={styles.timelineDot} />
+
+              {/* Card Header */}
               <div className={styles.cardHeader}>
                 <div className={styles.titleGroup}>
-                  <h3 className={styles.role}>{e.role}</h3>
-                  <p className={styles.company}>{e.company}</p>
+                  <div className={styles.roleRow}>
+                    <h3 className={styles.role}>{e.role}</h3>
+                    {e.current && <span className={styles.activeTag}>Current</span>}
+                  </div>
+                  <div className={styles.companyMeta}>
+                    <span className={styles.company}><Building2 size={14} /> {e.company}</span>
+                    <span className={styles.metaDot}>•</span>
+                    <span className={styles.location}><MapPin size={13} /> {e.location}</span>
+                  </div>
                 </div>
+
                 <div className={`${styles.periodBadge} ${e.current ? styles.periodCurrent : ''}`}>
-                  {e.period}
+                  <Calendar size={13} />
+                  <span>{e.period}</span>
                 </div>
               </div>
-              
+
+              {/* Description */}
               <p className={styles.desc}>{e.desc}</p>
-              
+
+              {/* Tech Stack */}
               <div className={styles.techStack}>
                 {e.tech.map((tech, idx) => (
-                  <span key={idx} className={styles.techBadge}>{tech}</span>
+                  <span key={idx} className={styles.techBadge}>
+                    {tech}
+                  </span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.div>
     </motion.div>
   );
 }
+
+

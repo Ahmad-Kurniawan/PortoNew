@@ -41,7 +41,7 @@ export default function AboutSection() {
           <div className={styles.imageContainer}>
             <div className={styles.imageGlow}></div>
             <Image
-              src="https://i.ibb.co/WWpPWmzQ/foto.jpg"
+              src="https://res.cloudinary.com/dm8ryfdi4/image/upload/v1784656643/Foto2_jh341e.jpg"
               alt="Developer Portrait"
               unoptimized
               fill

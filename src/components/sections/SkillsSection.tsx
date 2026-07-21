@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiFigma, SiDocker, SiPostgresql, SiGit, SiTailwindcss, SiPrisma, SiPython } from '@icons-pack/react-simple-icons';
+import { SiSupabase,SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiFigma, SiDocker, SiPostgresql, SiGit, SiTailwindcss, SiPrisma, SiPython, SiShadcnui } from '@icons-pack/react-simple-icons';
 import styles from './SkillsSection.module.css';
 
 const container = {
@@ -21,6 +21,7 @@ const categories = [
       { name: 'Next.js', icon: <SiNextdotjs size={26} /> },
       { name: 'TypeScript', icon: <SiTypescript size={26} /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss size={26} /> },
+      { name: 'Shadcn UI', icon: <SiShadcnui size={26} /> },
     ]
   },
   {
@@ -30,6 +31,7 @@ const categories = [
       { name: 'Python', icon: <SiPython size={26} /> },
       { name: 'PostgreSQL', icon: <SiPostgresql size={26} /> },
       { name: 'Prisma', icon: <SiPrisma size={26} /> },
+      { name: 'Supabase', icon: <SiSupabase size={26} /> },
     ]
   },
   {
