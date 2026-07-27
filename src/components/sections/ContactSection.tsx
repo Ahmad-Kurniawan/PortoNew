@@ -104,7 +104,7 @@ export default function ContactSection() {
 
         <motion.div variants={item} className={styles.contacts}>
           {[
-            { icon: <Mail size={20} />, label: 'Email', value: 'hello@portonew.dev' },
+            { icon: <Mail size={20} />, label: 'Email', value: 'ahmad.krnwn06@gmail.com' },
             { icon: <MapPin size={20} />, label: 'Location', value: 'Pekanbaru, Indonesia' },
             { icon: <Briefcase size={20} />, label: 'Status', value: 'Available for work' },
           ].map((c) => (
