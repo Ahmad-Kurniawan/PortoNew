@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Palette, Code2, Rocket } from 'lucide-react';
-import Image from 'next/image';
+import PixelTransition from '../PixelTransition/PixelTransition';
 import styles from './AboutSection.module.css';
 
 const container = {
@@ -40,14 +40,27 @@ export default function AboutSection() {
         <motion.div variants={item} className={styles.imageColumn}>
           <div className={styles.imageContainer}>
             <div className={styles.imageGlow}></div>
-            <Image
-              src="https://res.cloudinary.com/dm8ryfdi4/image/upload/v1784656643/Foto2_jh341e.jpg"
-              alt="Developer Portrait"
-              unoptimized
-              fill
-              className={styles.profileImage}
-              sizes="(max-width: 768px) 100vw, 400px"
-              priority
+            <PixelTransition
+              firstContent={
+                <img
+                  src="https://res.cloudinary.com/dm8ryfdi4/image/upload/v1785230943/Me_wpakzj.jpg"
+                  alt="Developer Portrait"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              }
+              secondContent={
+                <img
+                  src="https://res.cloudinary.com/dm8ryfdi4/image/upload/v1784656643/Foto2_jh341e.jpg"
+                  alt="Developer Portrait Reveal"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              }
+              gridSize={12}
+              pixelColor="#ffffff"
+              once={false}
+              animationStepDuration={0.4}
+              aspectRatio="125%"
+              className={styles.customPixelCard}
             />
           </div>
         </motion.div>
@@ -69,14 +82,6 @@ export default function AboutSection() {
             </p>
           </div>
 
-          <div className={styles.bentoGrid}>
-            {stats.map((s) => (
-              <div key={s.label} className={styles.statCard}>
-                <span className={styles.statValue}>{s.value}</span>
-                <span className={styles.statLabel}>{s.label}</span>
-              </div>
-            ))}
-          </div>
         </motion.div>
       </div>
 

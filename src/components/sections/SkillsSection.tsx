@@ -1,7 +1,24 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { SiSupabase,SiReact, SiNextdotjs, SiTypescript, SiNodedotjs, SiFigma, SiDocker, SiPostgresql, SiGit, SiTailwindcss, SiPrisma, SiPython, SiShadcnui } from '@icons-pack/react-simple-icons';
+import { 
+  SiSupabase,
+  SiReact, 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiNodedotjs, 
+  SiFigma, 
+  SiDocker, 
+  SiPostgresql, 
+  SiGit, 
+  SiTailwindcss, 
+  SiPrisma, 
+  SiPython, 
+  SiShadcnui,
+  SiCloudinary,
+  SiMongodb,
+  SiFramer} 
+  from '@icons-pack/react-simple-icons';
 import styles from './SkillsSection.module.css';
 
 const container = {
@@ -22,6 +39,7 @@ const categories = [
       { name: 'TypeScript', icon: <SiTypescript size={26} /> },
       { name: 'Tailwind CSS', icon: <SiTailwindcss size={26} /> },
       { name: 'Shadcn UI', icon: <SiShadcnui size={26} /> },
+      { name: 'Framer Motion', icon: <SiFramer size={26} /> },
     ]
   },
   {
@@ -32,6 +50,7 @@ const categories = [
       { name: 'PostgreSQL', icon: <SiPostgresql size={26} /> },
       { name: 'Prisma', icon: <SiPrisma size={26} /> },
       { name: 'Supabase', icon: <SiSupabase size={26} /> },
+      { name: 'MongoDB', icon: <SiMongodb size={26} /> },
     ]
   },
   {
@@ -40,6 +59,7 @@ const categories = [
       { name: 'Git', icon: <SiGit size={26} /> },
       { name: 'Docker', icon: <SiDocker size={26} /> },
       { name: 'Figma', icon: <SiFigma size={26} /> },
+      { name: 'Cloudinary', icon: <SiCloudinary size={26} /> },
     ]
   }
 ];
@@ -53,7 +73,7 @@ export default function SkillsSection() {
       animate="show"
     >
       <motion.div variants={item}>
-        <p className="section-label">Expertise</p>
+        <p className="section-label">Skills</p>
         <h2 className="section-title">
           My <span>Tech Stack</span>
         </h2>

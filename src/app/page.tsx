@@ -19,15 +19,6 @@ import styles from './page.module.css';
 
 const NAV_ITEMS = ['Home', 'About', 'Experience', 'Skills', 'Projects', 'Contact'];
 
-const SECTION_MAP: Record<string, React.ReactNode> = {
-  Home: <HomeSection />,
-  About: <AboutSection />,
-  Experience: <ExperienceSection />,
-  Skills: <SkillsSection />,
-  Projects: <ProjectsSection />,
-  Contact: <ContactSection />,
-};
-
 const pageVariants = {
   enter: (dir: number) => ({
     x: dir > 0 ? 60 : -60,
@@ -64,6 +55,23 @@ export default function PortfolioPage() {
     },
     [activeIndex]
   );
+
+  const handleNavigateToProjects = useCallback(() => {
+    const projectsIndex = NAV_ITEMS.indexOf('Projects');
+    if (projectsIndex !== -1 && projectsIndex !== activeIndex) {
+      setDirection(projectsIndex > activeIndex ? 1 : -1);
+      setActiveIndex(projectsIndex);
+    }
+  }, [activeIndex]);
+
+  const SECTION_MAP: Record<string, React.ReactNode> = {
+    Home: <HomeSection onNavigateToProjects={handleNavigateToProjects} />,
+    About: <AboutSection />,
+    Experience: <ExperienceSection />,
+    Skills: <SkillsSection />,
+    Projects: <ProjectsSection />,
+    Contact: <ContactSection />,
+  };
 
   const activeName = NAV_ITEMS[activeIndex];
 
@@ -105,7 +113,7 @@ export default function PortfolioPage() {
             <div className={styles.wheelWrap}>
               <OptionWheel
                 items={NAV_ITEMS}
-                defaultSelected={0}
+                defaultSelected={activeIndex}
                 onChange={handleChange}
                 textColor="#3a4a5e"
                 activeColor="#f1f5f9"

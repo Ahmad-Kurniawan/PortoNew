@@ -40,7 +40,7 @@ const experiences = [
     period: '2025',
     desc: 'Berperan sebagai pengembang antarmuka utama dalam pembangunan sistem dashboard pemantauan lahan berbasis geospasial untuk Polda Riau guna menyajikan visualisasi data monitoring wilayah secara intuitif.',
     current: false,
-    tech: ['React', 'TypeScript', 'Dashboard UI', 'Geospatial Data', 'Tailwind CSS'],
+    tech: ['Next.js', 'TypeScript', 'Dashboard UI', 'Tailwind CSS', 'Framer Motion'],
   },
   {
     id: '03',
@@ -50,7 +50,7 @@ const experiences = [
     period: '2025',
     desc: 'Merancang dan membangun antarmuka pengguna (front-end) pada Dashboard TIF untuk Modul Kerja Praktik, meningkatkan efisiensi dan transparansi alur akademik kerja praktik mahasiswa.',
     current: false,
-    tech: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn UI'],
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Shadcn UI'],
   },
 ];
 

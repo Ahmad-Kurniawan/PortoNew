@@ -18,7 +18,11 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] } },
 };
 
-export default function HomeSection() {
+interface HomeSectionProps {
+  onNavigateToProjects?: () => void;
+}
+
+export default function HomeSection({ onNavigateToProjects }: HomeSectionProps) {
   return (
     <motion.div
       className={styles.wrapper}
@@ -29,7 +33,7 @@ export default function HomeSection() {
       <motion.h1 variants={item} className={styles.name}>
         Ahmad Kurniawan<br />
         <span className={styles.role}>
-          Software Developer <span className={styles.separator}>|</span> <span className={styles.roleHighlight}>AI & Machine Learning Enthusiast</span>
+          Web Developer <span className={styles.separator}>|</span> <span className={styles.roleHighlight}>AI Engineer & Machine Learning</span>
         </span>
       </motion.h1>
 
@@ -43,7 +47,14 @@ export default function HomeSection() {
 
       <motion.div variants={item} className={styles.actions}>
         <div className={styles.ctas}>
-          <a href="#" className="btn-primary">
+          <a
+            href="#projects"
+            className="btn-primary"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigateToProjects?.();
+            }}
+          >
             View Projects <ArrowRight size={16} />
           </a>
           <a href="#" className="btn-outline">
